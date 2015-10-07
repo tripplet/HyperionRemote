@@ -14,9 +14,7 @@
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (strong) IBOutlet NSWindow *window;
 
-- (IBAction)openCustomColor:(NSMenuItem *)sender;
 - (IBAction)clearColor:(NSMenuItem *)sender;
 - (IBAction)showSettings:(id)sender;
-
 
 @end
