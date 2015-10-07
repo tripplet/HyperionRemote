@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB270691BC0648400E6E652 /* HyperionColor.m */; settings = {ASSET_TAGS = (); }; };
 		CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */; };
 		CDDBD3871B7E83FF00E6E652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3861B7E83FF00E6E652 /* main.m */; };
 		CDDBD3891B7E83FF00E6E652 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDBD3881B7E83FF00E6E652 /* Images.xcassets */; };
@@ -25,6 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CDB270681BC0648400E6E652 /* HyperionColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperionColor.h; sourceTree = "<group>"; };
+		CDB270691BC0648400E6E652 /* HyperionColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperionColor.m; sourceTree = "<group>"; };
 		CDDBD37E1B7E83FF00E6E652 /* HyperionRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperionRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBD3821B7E83FF00E6E652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDDBD3831B7E83FF00E6E652 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDB2706B1BC0648F00E6E652 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CDB270681BC0648400E6E652 /* HyperionColor.h */,
+				CDB270691BC0648400E6E652 /* HyperionColor.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		CDDBD3751B7E83FF00E6E652 = {
 			isa = PBXGroup;
 			children = (
@@ -76,9 +88,9 @@
 		CDDBD3801B7E83FF00E6E652 /* HyperionRemote */ = {
 			isa = PBXGroup;
 			children = (
+				CDB2706B1BC0648F00E6E652 /* DataModel */,
 				CDDBD3831B7E83FF00E6E652 /* AppDelegate.h */,
 				CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */,
-				CDDBD3881B7E83FF00E6E652 /* Images.xcassets */,
 				CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */,
 				CDDBD3811B7E83FF00E6E652 /* Supporting Files */,
 			);
@@ -88,6 +100,7 @@
 		CDDBD3811B7E83FF00E6E652 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDDBD3881B7E83FF00E6E652 /* Images.xcassets */,
 				CDDBD3821B7E83FF00E6E652 /* Info.plist */,
 				CDDBD3861B7E83FF00E6E652 /* main.m */,
 			);
@@ -212,6 +225,7 @@
 			files = (
 				CDDBD3871B7E83FF00E6E652 /* main.m in Sources */,
 				CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */,
+				CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +415,7 @@
 				CDDBD39D1B7E840000E6E652 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDDBD39E1B7E840000E6E652 /* Build configuration list for PBXNativeTarget "HyperionRemoteTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +424,7 @@
 				CDDBD3A01B7E840000E6E652 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
