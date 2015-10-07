@@ -58,7 +58,10 @@
 + (void) sendCommand: (NSString *)command {
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"quimby.", 19444, &readStream, &writeStream);
+    
+    NSString *server = [[NSUserDefaults standardUserDefaults] stringForKey:@"serverAddress"];
+    
+    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)server, 19444, &readStream, &writeStream);
     
     NSInputStream *inputStream = (__bridge_transfer NSInputStream *)readStream;
     NSOutputStream *outputStream = (__bridge_transfer NSOutputStream *)writeStream;
