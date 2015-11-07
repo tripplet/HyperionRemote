@@ -1,5 +1,7 @@
 HyperionRemote
 ==============
+![](https://travis-ci.org/tripplet/HyperionRemote.svg)
+
 OSX Statusbar app for controlling [Hyperion](https://github.com/tvdzwan/hyperion/wiki) led stripes.
 Download [here](https://github.com/tripplet/HyperionRemote/releases/)
 
