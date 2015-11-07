@@ -6,5 +6,6 @@
 *~
 
 # Xcode
+builds/
 xcode_build
 xcuserdata/
