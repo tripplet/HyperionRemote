@@ -13,7 +13,6 @@
 		CDDBD3871B7E83FF00E6E652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3861B7E83FF00E6E652 /* main.m */; };
 		CDDBD3891B7E83FF00E6E652 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDBD3881B7E83FF00E6E652 /* Images.xcassets */; };
 		CDDBD38C1B7E83FF00E6E652 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */; };
-		CDDBD3981B7E840000E6E652 /* HyperionRemoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3971B7E840000E6E652 /* HyperionRemoteTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +38,6 @@
 		CDDBD3881B7E83FF00E6E652 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDDBD38B1B7E83FF00E6E652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		CDDBD3911B7E840000E6E652 /* HyperionRemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperionRemoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDDBD3961B7E840000E6E652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDDBD3971B7E840000E6E652 /* HyperionRemoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperionRemoteTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				CDDBD3801B7E83FF00E6E652 /* HyperionRemote */,
-				CDDBD3941B7E840000E6E652 /* HyperionRemoteTests */,
 				CDDBD37F1B7E83FF00E6E652 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,23 +104,6 @@
 				CDDBD3881B7E83FF00E6E652 /* Images.xcassets */,
 				CDDBD3821B7E83FF00E6E652 /* Info.plist */,
 				CDDBD3861B7E83FF00E6E652 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CDDBD3941B7E840000E6E652 /* HyperionRemoteTests */ = {
-			isa = PBXGroup;
-			children = (
-				CDDBD3971B7E840000E6E652 /* HyperionRemoteTests.m */,
-				CDDBD3951B7E840000E6E652 /* Supporting Files */,
-			);
-			path = HyperionRemoteTests;
-			sourceTree = "<group>";
-		};
-		CDDBD3951B7E840000E6E652 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CDDBD3961B7E840000E6E652 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDDBD3981B7E840000E6E652 /* HyperionRemoteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
