@@ -99,6 +99,7 @@
 				CDDBD37A1B7E83FF00E6E652 /* Sources */,
 				CDDBD37B1B7E83FF00E6E652 /* Frameworks */,
 				CDDBD37C1B7E83FF00E6E652 /* Resources */,
+				CD5650F21BEE793400E6E652 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -152,6 +153,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD5650F21BEE793400E6E652 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -sf \"$BUILD_DIR\" xcode_build";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDDBD37A1B7E83FF00E6E652 /* Sources */ = {
