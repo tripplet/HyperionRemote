@@ -1,0 +1,5 @@
+language: objective-c
+xcode_project: HyperionRemote.xcodeproj
+xcode_scheme: HyperionRemote
+after_success:
+  - xctool -project Steam\ IM.xcodeproj -scheme Steam\ IM -configuration Release build
