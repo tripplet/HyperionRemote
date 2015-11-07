@@ -69,4 +69,8 @@ NSArray *colors;
     [self.window makeKeyAndOrderFront:nil];
 }
 
+- (IBAction)clickedColorWell:(NSColorWell *)sender {
+    [HyperionColor sendColor:sender.color];
+}
+
 @end

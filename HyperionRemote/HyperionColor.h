@@ -17,6 +17,8 @@
 @property (readonly) NSString *colorText;
 
 + (void) sendCommand: (NSString *)command;
++ (NSString *) getTextDescriptionFromColor:(NSColor*) color;
++ (void) sendColor: (NSColor*) color;
 
 - (IBAction) sendColor: (id) sender;
 - (void) setColorNoSend: (NSColor*) color;

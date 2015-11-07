@@ -42,17 +42,29 @@
     _color = [color copy];
 }
 
-- (NSString *)colorText
+- (NSString *) colorText          { return [HyperionColor getTextDescriptionFromColor:self.color]; }
+- (IBAction) sendColor:(id)sender { [HyperionColor sendColor: self.color]; }
+
++ (NSString *) getTextDescriptionFromColor:(NSColor*) color
 {
     return [NSString stringWithFormat:@"[%d, %d, %d]",
-              (int) (self.color.redComponent   * 255),
-              (int) (self.color.greenComponent * 255),
-              (int) (self.color.blueComponent  * 255)];
+            (int) (color.redComponent   * 255),
+            (int) (color.greenComponent * 255),
+            (int) (color.blueComponent  * 255)];
 }
 
-- (IBAction) sendColor:(id)sender
++ (void) sendColor: (NSColor*) color
 {
-    [HyperionColor sendCommand:[NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10}\n", self.colorText]];
+    NSInteger timeout = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeout"];
+    
+    if (timeout != 0) {
+        [HyperionColor sendCommand: [NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10,\"duration\":%ld}\n",
+                                                              [HyperionColor getTextDescriptionFromColor:color], timeout * 60 * 1000]];
+    }
+    else {
+        [HyperionColor sendCommand:[NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10}\n",
+                                                              [HyperionColor getTextDescriptionFromColor:color]]];
+    }
 }
 
 + (void) sendCommand: (NSString *)command {
@@ -72,9 +84,19 @@
     const char *rawstring = [command UTF8String];
     [outputStream write:(uint8_t*)rawstring maxLength: strlen(rawstring)];
     [outputStream close];
+    
+    NSMutableData *collectedData = [NSMutableData data];
+    uint8_t buffer[1024];
+    long len;
+    while ([inputStream hasBytesAvailable]) {
+        len = [inputStream read:buffer maxLength:sizeof(buffer)];
+        [collectedData appendBytes: (const void *)buffer length:len];
+    }
+    
     [inputStream close];
+    
+    id object = [NSJSONSerialization JSONObjectWithData:collectedData options:0 error:nil];
 }
-
 
 #pragma mark - NSCoding
 

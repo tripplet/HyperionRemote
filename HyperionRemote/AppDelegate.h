@@ -16,5 +16,6 @@
 
 - (IBAction)clearColor:(NSMenuItem *)sender;
 - (IBAction)showSettings:(id)sender;
+- (IBAction)clickedColorWell:(NSColorWell *)sender;
 
 @end

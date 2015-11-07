@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB270691BC0648400E6E652 /* HyperionColor.m */; settings = {ASSET_TAGS = (); }; };
+		CD5650F11BEE686100E6E652 /* CustomColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5650F01BEE686100E6E652 /* CustomColorWell.m */; };
+		CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB270691BC0648400E6E652 /* HyperionColor.m */; };
 		CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */; };
 		CDDBD3871B7E83FF00E6E652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3861B7E83FF00E6E652 /* main.m */; };
 		CDDBD3891B7E83FF00E6E652 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDBD3881B7E83FF00E6E652 /* Images.xcassets */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD5650EF1BEE686100E6E652 /* CustomColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomColorWell.h; sourceTree = "<group>"; };
+		CD5650F01BEE686100E6E652 /* CustomColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomColorWell.m; sourceTree = "<group>"; };
 		CDB270681BC0648400E6E652 /* HyperionColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperionColor.h; sourceTree = "<group>"; };
 		CDB270691BC0648400E6E652 /* HyperionColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperionColor.m; sourceTree = "<group>"; };
 		CDDBD37E1B7E83FF00E6E652 /* HyperionRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperionRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +95,8 @@
 				CDDBD3831B7E83FF00E6E652 /* AppDelegate.h */,
 				CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */,
 				CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */,
+				CD5650EF1BEE686100E6E652 /* CustomColorWell.h */,
+				CD5650F01BEE686100E6E652 /* CustomColorWell.m */,
 				CDDBD3811B7E83FF00E6E652 /* Supporting Files */,
 			);
 			path = HyperionRemote;
@@ -225,6 +230,7 @@
 			files = (
 				CDDBD3871B7E83FF00E6E652 /* main.m in Sources */,
 				CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */,
+				CD5650F11BEE686100E6E652 /* CustomColorWell.m in Sources */,
 				CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
