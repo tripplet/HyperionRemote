@@ -15,16 +15,6 @@
 		CDDBD38C1B7E83FF00E6E652 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CDDBD3921B7E840000E6E652 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CDDBD3761B7E83FF00E6E652 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CDDBD37D1B7E83FF00E6E652;
-			remoteInfo = HyperionRemote;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		CD5650EF1BEE686100E6E652 /* CustomColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomColorWell.h; sourceTree = "<group>"; };
 		CD5650F01BEE686100E6E652 /* CustomColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomColorWell.m; sourceTree = "<group>"; };
@@ -37,18 +27,10 @@
 		CDDBD3861B7E83FF00E6E652 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDDBD3881B7E83FF00E6E652 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDDBD38B1B7E83FF00E6E652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CDDBD3911B7E840000E6E652 /* HyperionRemoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HyperionRemoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CDDBD37B1B7E83FF00E6E652 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDDBD38E1B7E840000E6E652 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				CDDBD37E1B7E83FF00E6E652 /* HyperionRemote.app */,
-				CDDBD3911B7E840000E6E652 /* HyperionRemoteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,24 +109,6 @@
 			productReference = CDDBD37E1B7E83FF00E6E652 /* HyperionRemote.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CDDBD3901B7E840000E6E652 /* HyperionRemoteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CDDBD39E1B7E840000E6E652 /* Build configuration list for PBXNativeTarget "HyperionRemoteTests" */;
-			buildPhases = (
-				CDDBD38D1B7E840000E6E652 /* Sources */,
-				CDDBD38E1B7E840000E6E652 /* Frameworks */,
-				CDDBD38F1B7E840000E6E652 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CDDBD3931B7E840000E6E652 /* PBXTargetDependency */,
-			);
-			name = HyperionRemoteTests;
-			productName = HyperionRemoteTests;
-			productReference = CDDBD3911B7E840000E6E652 /* HyperionRemoteTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -157,10 +120,6 @@
 				TargetAttributes = {
 					CDDBD37D1B7E83FF00E6E652 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					CDDBD3901B7E840000E6E652 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = CDDBD37D1B7E83FF00E6E652;
 					};
 				};
 			};
@@ -178,7 +137,6 @@
 			projectRoot = "";
 			targets = (
 				CDDBD37D1B7E83FF00E6E652 /* HyperionRemote */,
-				CDDBD3901B7E840000E6E652 /* HyperionRemoteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -190,13 +148,6 @@
 			files = (
 				CDDBD3891B7E83FF00E6E652 /* Images.xcassets in Resources */,
 				CDDBD38C1B7E83FF00E6E652 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CDDBD38F1B7E840000E6E652 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,22 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CDDBD38D1B7E840000E6E652 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CDDBD3931B7E840000E6E652 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CDDBD37D1B7E83FF00E6E652 /* HyperionRemote */;
-			targetProxy = CDDBD3921B7E840000E6E652 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */ = {
@@ -344,42 +280,6 @@
 			};
 			name = Release;
 		};
-		CDDBD39F1B7E840000E6E652 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HyperionRemoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyperionRemote.app/Contents/MacOS/HyperionRemote";
-			};
-			name = Debug;
-		};
-		CDDBD3A01B7E840000E6E652 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HyperionRemoteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HyperionRemote.app/Contents/MacOS/HyperionRemote";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -397,15 +297,6 @@
 			buildConfigurations = (
 				CDDBD39C1B7E840000E6E652 /* Debug */,
 				CDDBD39D1B7E840000E6E652 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDDBD39E1B7E840000E6E652 /* Build configuration list for PBXNativeTarget "HyperionRemoteTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDDBD39F1B7E840000E6E652 /* Debug */,
-				CDDBD3A01B7E840000E6E652 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
