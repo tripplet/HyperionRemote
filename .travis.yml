@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: HyperionRemote.xcodeproj
 xcode_scheme: HyperionRemote
+script: xcodebuild
