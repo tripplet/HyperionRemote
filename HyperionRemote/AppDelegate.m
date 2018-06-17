@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HyperionColor.h"
-
-#define COLORS_KEY @"colors"
+#import "GlobalDefinitions.h"
 
 @interface AppDelegate ()
 @end
@@ -18,9 +17,34 @@
 
 @synthesize statusMenu;
 @synthesize colorMenu;
+@synthesize colorArrayController;
+@synthesize colorTableView;
+@synthesize colors;
 
 NSStatusItem *statusItem = nil;
-NSArray *colors;
+
+- (id) init
+{
+    self = [super init];
+    if (!self) return nil;
+    
+    // Add this instance of TestClass as an observer of the TestNotification.
+    // We tell the notification center to inform us of "TestNotification"
+    // notifications using the receiveTestNotification: selector. By
+    // specifying object:nil, we tell the notification center that we are not
+    // interested in who posted the notification. If you provided an actual
+    // object rather than nil, the notification center will only notify you
+    // when the notification was posted by that particular object.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveSettingsNotification:)
+                                                 name:NOTIFY_SAVE_SETTING
+                                               object:nil];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.colors = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:COLORS_KEY]];
+    
+    return self;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -30,25 +54,54 @@ NSArray *colors;
     statusItem.toolTip = @"HyperionRemote";
     statusItem.highlightMode = YES;
     
-    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:COLORS_KEY options:NSKeyValueObservingOptionNew context:nil];
     [self updateMenuItems];
+}
+
+- (IBAction)addColor:(id)sender {
+    // Try to end any editing that is taking place in the table view
+    NSWindow *w = [colorTableView window];
+    BOOL endEdit = [w makeFirstResponder:w];
+    if(!endEdit) {
+        return;
+    }
+    
+    // Create a new object and add it to the arrayController
+    HyperionColor *new = [colorArrayController newObject];
+    [colorArrayController addObject:new];
+    
+    // Get the index of the new object
+    NSArray *array = [colorArrayController arrangedObjects];
+    
+    // Comparison based on identifier
+    NSUInteger row = [array indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [((HyperionColor*)obj).identifier isEqualTo:new.identifier];
+    }];
+    
+    // Begin editing of the cell containing the new color
+    colorArrayController.selectionIndex = row;
+    [colorTableView editColumn:0 row:row withEvent:nil select:YES];
 }
 
 - (void) updateMenuItems
 {
     [colorMenu removeAllItems];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    colors = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:COLORS_KEY]];
     
-    for (HyperionColor *color in colors) {
+    for (HyperionColor *color in self.colorArrayController.arrangedObjects) {
         NSMenuItem *newColorEntry = [colorMenu addItemWithTitle:color.name action:@selector(sendColor:) keyEquivalent:@""];
         [newColorEntry setTarget:color];
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void) saveSettingsNotification:(NSNotification *) notification
 {
-    [self updateMenuItems];
+    if ([[notification name] isEqualToString:NOTIFY_SAVE_SETTING])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.colorArrayController.arrangedObjects] forKey:COLORS_KEY];
+        [defaults synchronize];
+        
+        [self updateMenuItems];
+    }
 }
 
 - (void)dealloc
@@ -67,10 +120,6 @@ NSArray *colors;
 - (IBAction)showSettings:(id)sender {
     [NSApp activateIgnoringOtherApps:YES];
     [self.window makeKeyAndOrderFront:nil];
-}
-
-- (IBAction)clickedColorWell:(NSColorWell *)sender {
-    [HyperionColor sendColor:sender.color];
 }
 
 @end

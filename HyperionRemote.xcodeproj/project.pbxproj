@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD53BCCA20D6A2DB005F074C /* RSRTVArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53BCC920D6A2DB005F074C /* RSRTVArrayController.m */; };
+		CD53BCCE20D6A7D6005F074C /* ColorArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD53BCCD20D6A7D6005F074C /* ColorArrayController.m */; };
 		CD5650F11BEE686100E6E652 /* CustomColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5650F01BEE686100E6E652 /* CustomColorWell.m */; };
 		CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB270691BC0648400E6E652 /* HyperionColor.m */; };
 		CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */; };
@@ -16,6 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD53BCC820D6A2DB005F074C /* RSRTVArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSRTVArrayController.h; sourceTree = "<group>"; };
+		CD53BCC920D6A2DB005F074C /* RSRTVArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSRTVArrayController.m; sourceTree = "<group>"; };
+		CD53BCCC20D6A7D6005F074C /* ColorArrayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorArrayController.h; sourceTree = "<group>"; };
+		CD53BCCD20D6A7D6005F074C /* ColorArrayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorArrayController.m; sourceTree = "<group>"; };
+		CD53BCCF20D6A93D005F074C /* GlobalDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefinitions.h; sourceTree = "<group>"; };
 		CD5650EF1BEE686100E6E652 /* CustomColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomColorWell.h; sourceTree = "<group>"; };
 		CD5650F01BEE686100E6E652 /* CustomColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomColorWell.m; sourceTree = "<group>"; };
 		CDB270681BC0648400E6E652 /* HyperionColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperionColor.h; sourceTree = "<group>"; };
@@ -40,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD53BCCB20D6A782005F074C /* ReorderingArrayController */ = {
+			isa = PBXGroup;
+			children = (
+				CD53BCC820D6A2DB005F074C /* RSRTVArrayController.h */,
+				CD53BCC920D6A2DB005F074C /* RSRTVArrayController.m */,
+				CD53BCCC20D6A7D6005F074C /* ColorArrayController.h */,
+				CD53BCCD20D6A7D6005F074C /* ColorArrayController.m */,
+			);
+			path = ReorderingArrayController;
+			sourceTree = "<group>";
+		};
 		CDB2706B1BC0648F00E6E652 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +86,13 @@
 		CDDBD3801B7E83FF00E6E652 /* HyperionRemote */ = {
 			isa = PBXGroup;
 			children = (
+				CDEA240820D6B4130051D040 /* CustomColorWell */,
 				CDB2706B1BC0648F00E6E652 /* DataModel */,
+				CD53BCCB20D6A782005F074C /* ReorderingArrayController */,
+				CD53BCCF20D6A93D005F074C /* GlobalDefinitions.h */,
 				CDDBD3831B7E83FF00E6E652 /* AppDelegate.h */,
 				CDDBD3841B7E83FF00E6E652 /* AppDelegate.m */,
 				CDDBD38A1B7E83FF00E6E652 /* MainMenu.xib */,
-				CD5650EF1BEE686100E6E652 /* CustomColorWell.h */,
-				CD5650F01BEE686100E6E652 /* CustomColorWell.m */,
 				CDDBD3811B7E83FF00E6E652 /* Supporting Files */,
 			);
 			path = HyperionRemote;
@@ -87,6 +106,15 @@
 				CDDBD3861B7E83FF00E6E652 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDEA240820D6B4130051D040 /* CustomColorWell */ = {
+			isa = PBXGroup;
+			children = (
+				CD5650EF1BEE686100E6E652 /* CustomColorWell.h */,
+				CD5650F01BEE686100E6E652 /* CustomColorWell.m */,
+			);
+			name = CustomColorWell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,7 +144,7 @@
 		CDDBD3761B7E83FF00E6E652 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Tobias Tangemann";
 				TargetAttributes = {
 					CDDBD37D1B7E83FF00E6E652 = {
@@ -177,8 +205,10 @@
 			files = (
 				CDDBD3871B7E83FF00E6E652 /* main.m in Sources */,
 				CDDBD3851B7E83FF00E6E652 /* AppDelegate.m in Sources */,
+				CD53BCCA20D6A2DB005F074C /* RSRTVArrayController.m in Sources */,
 				CD5650F11BEE686100E6E652 /* CustomColorWell.m in Sources */,
 				CDB2706A1BC0648400E6E652 /* HyperionColor.m in Sources */,
+				CD53BCCE20D6A7D6005F074C /* ColorArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,19 +234,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -232,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -247,13 +288,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -269,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

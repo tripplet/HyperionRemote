@@ -7,45 +7,62 @@
 //
 
 #import "HyperionColor.h"
+#import "GlobalDefinitions.h"
+
+@interface HyperionColor()
+@property (readwrite) NSString *identifier;
+@end
 
 @implementation HyperionColor
 
-@synthesize name;
+@synthesize name = _name;
 @synthesize color = _color;
-;
+@synthesize identifier;
 
-- (id) init
+- (id)init
 {
     if (self = [super init])
     {
         self.name = @"NewColor";
         [self setColorNoSend: [NSColor blueColor]];
+        self.identifier = [[NSUUID UUID] UUIDString];
     }
+    
     return self;
 }
 
-- (void) setColor:(NSColor *)color
+- (void)setColor:(NSColor *)color
 {
-    _color = [color copy];
+    [self setColorNoSend:color];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SAVE_SETTING object:self];
     
     // Send the color to hyperion to make it easiert to choose the right color
     [self sendColor:nil];
 }
 
-- (NSColor*) color
-{
-    return _color;
+
+- (NSColor*)color  { return _color; }
+- (NSString *)name { return _name; }
+
+- (void)setColorNoSend:(NSColor *)color { _color = [color copy]; }
+- (void)setNameNoSave:(NSString *)name  { _name = [name copy];}
+
+- (void)setName:(NSString *)name {
+    [self setNameNoSave:name];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_SAVE_SETTING object:self];
 }
 
-- (void) setColorNoSend:(NSColor *)color
+- (NSString *)colorText
 {
-    _color = [color copy];
+    return [HyperionColor getTextDescriptionFromColor:self.color];
 }
 
-- (NSString *) colorText          { return [HyperionColor getTextDescriptionFromColor:self.color]; }
-- (IBAction) sendColor:(id)sender { [HyperionColor sendColor: self.color]; }
+- (IBAction)sendColor:(id)sender
+{
+    [HyperionColor sendColor: self.color];
+}
 
-+ (NSString *) getTextDescriptionFromColor:(NSColor*) color
++ (NSString *)getTextDescriptionFromColor:(NSColor*) color
 {
     return [NSString stringWithFormat:@"[%d, %d, %d]",
             (int) (color.redComponent   * 255),
@@ -53,21 +70,34 @@
             (int) (color.blueComponent  * 255)];
 }
 
-+ (void) sendColor: (NSColor*) color
++ (void)sendColor: (NSColor*) color
 {
     NSInteger timeout = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeout"];
     
+    NSString *command;
     if (timeout != 0) {
-        [HyperionColor sendCommand: [NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10,\"duration\":%ld}\n",
-                                                              [HyperionColor getTextDescriptionFromColor:color], timeout * 60 * 1000]];
+        command = [NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10,\"duration\":%ld}\n",
+                                     [HyperionColor getTextDescriptionFromColor:color], timeout * 60 * 1000];
     }
     else {
-        [HyperionColor sendCommand:[NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10}\n",
-                                                              [HyperionColor getTextDescriptionFromColor:color]]];
+        command = [NSString stringWithFormat:@"{\"color\":%@,\"command\":\"color\",\"priority\":10}\n",
+                                    [HyperionColor getTextDescriptionFromColor:color]];
     }
+    
+    [HyperionColor sendCommand: command];
 }
 
-+ (void) sendCommand: (NSString *)command {
++ (void)sendCommand: (NSString *)command
+{
+    // Networking done in the background to avoid hanging ui
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [HyperionColor sendCommandData: command];
+    });
+}
+
++ (void)sendCommandData: (NSString*)command
+{
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
     
@@ -82,6 +112,7 @@
     [outputStream open];
     
     const char *rawstring = [command UTF8String];
+    
     [outputStream write:(uint8_t*)rawstring maxLength: strlen(rawstring)];
     [outputStream close];
     
@@ -94,23 +125,23 @@
     }
     
     [inputStream close];
-    
-    id object = [NSJSONSerialization JSONObjectWithData:collectedData options:0 error:nil];
 }
 
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:self.name  forKey:@"NAME"];
-    [coder encodeObject:self.color forKey:@"COLOR"];
+    [coder encodeObject:self.name       forKey:@"NAME"];
+    [coder encodeObject:self.color      forKey:@"COLOR"];
+    [coder encodeObject:self.identifier forKey:@"ID"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder
 {
     if (self = [super init])
     {
-        self.name  = [coder decodeObjectForKey:@"NAME"];
+        [self setNameNoSave:  [coder decodeObjectForKey:@"NAME"]];
+        self.identifier =     [coder decodeObjectForKey:@"ID"];
         [self setColorNoSend: [coder decodeObjectForKey:@"COLOR"]];
     }
     return self;

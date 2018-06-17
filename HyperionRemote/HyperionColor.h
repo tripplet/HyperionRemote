@@ -13,7 +13,7 @@
 
 @property (strong) NSString *name;
 @property (strong) NSColor *color;
-
+@property (readonly) NSString *identifier;
 @property (readonly) NSString *colorText;
 
 + (void) sendCommand: (NSString *)command;
