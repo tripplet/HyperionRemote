@@ -9,7 +9,7 @@
 @import AppKit;
 #import <Foundation/Foundation.h>
 
-@interface HyperionColor : NSObject <NSCoding>
+@interface HyperionColor : NSObject <NSSecureCoding>
 
 @property (strong) NSString *name;
 @property (strong) NSColor *color;

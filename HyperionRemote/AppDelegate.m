@@ -41,7 +41,8 @@ NSStatusItem *statusItem = nil;
                                                object:nil];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.colors = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:COLORS_KEY]];
+    NSSet *allowedClassed = [NSSet setWithObjects:NSArray.class, HyperionColor.class, nil];
+    self.colors = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClassed fromData:[defaults objectForKey:COLORS_KEY] error:nil];
     
     return self;
 }
@@ -49,10 +50,9 @@ NSStatusItem *statusItem = nil;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
-    statusItem.image = [NSImage imageNamed:@"hyperion_icon"];
+    statusItem.button.image = [NSImage imageNamed:@"hyperion_icon"];
     statusItem.menu = statusMenu;
-    statusItem.toolTip = @"HyperionRemote";
-    statusItem.highlightMode = YES;
+    statusItem.button.toolTip = @"HyperionRemote";
     
     [self updateMenuItems];
 }
@@ -97,9 +97,10 @@ NSStatusItem *statusItem = nil;
     if ([[notification name] isEqualToString:NOTIFY_SAVE_SETTING])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.colorArrayController.arrangedObjects] forKey:COLORS_KEY];
+
+        [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.colorArrayController.arrangedObjects requiringSecureCoding:YES error:nil] forKey:COLORS_KEY];
         [defaults synchronize];
-        
+
         [self updateMenuItems];
     }
 }

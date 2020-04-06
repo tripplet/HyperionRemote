@@ -127,7 +127,9 @@
     [inputStream close];
 }
 
-#pragma mark - NSCoding
+#pragma mark - NSSecureCoding
+
++ (BOOL)supportsSecureCoding { return YES; }
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
@@ -140,9 +142,9 @@
 {
     if (self = [super init])
     {
-        [self setNameNoSave:  [coder decodeObjectForKey:@"NAME"]];
-        self.identifier =     [coder decodeObjectForKey:@"ID"];
-        [self setColorNoSend: [coder decodeObjectForKey:@"COLOR"]];
+        [self setNameNoSave:  [coder decodeObjectOfClass:NSString.class forKey:@"NAME"]];
+        self.identifier =     [coder decodeObjectOfClass:NSUUID.class forKey:@"ID"];
+        [self setColorNoSend: [coder decodeObjectOfClass:NSColor.class forKey:@"COLOR"]];
     }
     return self;
 }
